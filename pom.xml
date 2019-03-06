@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-parent</artifactId>
-    <version>0.3.2-SNAPSHOT</version>
+    <version>0.3.2.fuse-730001</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -37,7 +37,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <camel2.version>2.23.1</camel2.version>
         <camel3.version>3.0.0-M1</camel3.version>
-        <camel.version>${camel2.version}</camel.version>
+        <camel.version>2.21.0.fuse-730058</camel.version>
         <catalog.version>${camel.version}</catalog.version>
         <junit.version>4.12</junit.version>
         <junit-jupiter.version>5.4.0</junit-jupiter.version>
