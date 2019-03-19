@@ -139,7 +139,7 @@
     </build>
 
     <modules>
-        <module>camel-k-adapter-camel-3</module>
+        <!--<module>camel-k-adapter-camel-3</module>-->
         <module>camel-k-adapter-camel-2</module>
         <module>camel-k-maven-plugin</module>
         <module>camel-k-runtime-core</module>
