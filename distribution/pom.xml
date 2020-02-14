@@ -21,7 +21,7 @@
   <parent>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-parent</artifactId>
-    <version>1.0.10</version>
+    <version>1.0.10.fuse-jdk11-800002</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <packaging>pom</packaging>
@@ -47,6 +47,18 @@
                   <finalName>apache-camel-k-runtime-${project.version}</finalName>
                   <descriptors>
                     <descriptor>src/main/assemblies/source-release.xml</descriptor>
+                  </descriptors>
+                </configuration>
+              </execution>
+              <execution>
+                <id>maven-repository</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+                <configuration>
+                  <descriptors>
+                    <descriptor>src/main/assemblies/repository.xml</descriptor>
                   </descriptors>
                 </configuration>
               </execution>
