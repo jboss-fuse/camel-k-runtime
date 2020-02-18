@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-bom</artifactId>
-    <version>1.0.10</version>
+    <version>1.0.10.fuse-jdk11-800003</version>
     <packaging>pom</packaging>
 
     <developers>
