@@ -28,14 +28,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-parent</artifactId>
-    <version>0.3.4-SNAPSHOT</version>
+    <version>0.3.4.fuse-760029</version>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <camel.version>2.24.0</camel.version>
+        <camel.version>2.23.2.fuse-760030</camel.version>
         <catalog.version>${camel.version}</catalog.version>
         <junit.version>4.12</junit.version>
         <junit-jupiter.version>5.4.2</junit-jupiter.version>
