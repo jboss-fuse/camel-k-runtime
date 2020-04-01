@@ -25,7 +25,7 @@
   </parent>
 
   <prerequisites>
-    <maven>3.6.3</maven>
+    <maven>3.6.2</maven>
   </prerequisites>
 
   <modelVersion>4.0.0</modelVersion>
