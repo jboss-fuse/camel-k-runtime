@@ -28,7 +28,7 @@ import org.apache.camel.RoutesBuilder;
 import org.apache.camel.StartupStep;
 import org.apache.camel.api.management.ManagedAttribute;
 import org.apache.camel.builder.endpoint.EndpointRouteBuilder;
-import org.apache.camel.dsl.groovy.GroovyDSL;
+import org.apache.camel.dsl.groovy.common.GroovyDSL;
 import org.apache.camel.dsl.groovy.GroovyRoutesBuilderLoader;
 import org.apache.camel.spi.Resource;
 import org.apache.camel.spi.RoutesBuilderLoader;
