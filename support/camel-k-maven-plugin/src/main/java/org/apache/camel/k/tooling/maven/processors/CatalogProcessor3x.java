@@ -160,14 +160,14 @@ public class CatalogProcessor3x implements CatalogProcessor {
     private static void processLoaders(CamelCatalogSpec.Builder specBuilder) {
         specBuilder.putLoader(
             "yaml",
-            CamelLoader.fromArtifact("org.apache.camel.k", "camel-k-loader-yaml")
+            CamelLoader.fromArtifact("org.apache.camel.quarkus", "camel-quarkus-yaml-dsl")
                 .addLanguage("yaml")
                 .putMetadata("native", "true")
                 .build()
         );
         specBuilder.putLoader(
             "groovy",
-            CamelLoader.fromArtifact("org.apache.camel.k", "camel-k-loader-groovy")
+            CamelLoader.fromArtifact("org.apache.camel.quarkus", "camel-quarkus-groovy-dsl")
                 .addLanguage("groovy")
                 .putMetadata("native", "false")
                 .build()

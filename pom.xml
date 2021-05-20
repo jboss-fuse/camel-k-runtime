@@ -350,8 +350,6 @@
 
         <module>camel-k-core</module>
         <module>camel-k-loader-jsh</module>
-        <module>camel-k-loader-yaml</module>
-        <module>camel-k-loader-groovy</module>
 
         <module>camel-k-cron</module>
         <module>camel-k-cloudevents</module>
@@ -634,31 +632,6 @@
             <dependency>
                 <groupId>org.apache.camel.k</groupId>
                 <artifactId>camel-k-loader-jsh-impl</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-yaml</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-yaml-deployment</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-yaml-impl</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-groovy</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-groovy-deployment</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

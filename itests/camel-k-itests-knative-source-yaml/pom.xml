@@ -47,8 +47,9 @@
 
         <!-- camel quarkus -->
         <dependency>
-            <groupId>org.apache.camel.k</groupId>
-            <artifactId>camel-k-loader-yaml</artifactId>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-yaml-dsl</artifactId>
+            <version>${camel-quarkus-version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel.quarkus</groupId>
@@ -122,9 +123,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.camel.k</groupId>
-            <artifactId>camel-k-loader-yaml</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-yaml-dsl</artifactId>
+            <version>${camel-quarkus-version}</version>
             <type>pom</type>
             <scope>test</scope>
             <exclusions>
