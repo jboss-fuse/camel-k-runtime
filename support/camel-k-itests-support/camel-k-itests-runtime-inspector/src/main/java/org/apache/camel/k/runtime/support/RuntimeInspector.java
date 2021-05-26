@@ -101,7 +101,7 @@ public class RuntimeInspector {
 
         List<String> endpoints = new ArrayList<>();
 
-        Iterator<ToDefinition> it = filterTypeInOutputs(def.getOutputs(), ToDefinition.class);
+        Iterator<ToDefinition> it = filterTypeInOutputs(def.getOutputs(), ToDefinition.class).iterator();
         while (it.hasNext()) {
             endpoints.add(it.next().getEndpointUri());
         }

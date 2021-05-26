@@ -122,9 +122,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.apache.camel.k</groupId>
-            <artifactId>camel-k-loader-groovy</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-groovy-dsl</artifactId>
+            <version>${camel-quarkus-version}</version>
             <type>pom</type>
             <scope>test</scope>
             <exclusions>

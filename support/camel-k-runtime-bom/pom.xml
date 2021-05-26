@@ -32,7 +32,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <camel-version>3.6.0</camel-version>
+        <camel-version>3.10.0.fuse-800003</camel-version>
     </properties>
 
     <developers>
@@ -209,21 +209,6 @@
             <dependency>
                 <groupId>org.apache.camel.k</groupId>
                 <artifactId>camel-k-loader-jsh</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-yaml-impl</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-yaml</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel.k</groupId>
-                <artifactId>camel-k-loader-groovy</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
