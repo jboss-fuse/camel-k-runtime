@@ -28,7 +28,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-bom</artifactId>
-    <version>1.7.1-SNAPSHOT</version>
+    <version>1.7.1.fuse-800006</version>
     <packaging>pom</packaging>
 
     <properties>
