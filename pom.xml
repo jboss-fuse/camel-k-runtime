@@ -42,8 +42,8 @@
 
         <!-- quarkus -->
         <camel-quarkus-version>1.8.1-SNAPSHOT</camel-quarkus-version>
-        <graalvm-version>20.3.1</graalvm-version>
-        <quarkus-version>1.11.6.Final-redhat-00001</quarkus-version>
+        <graalvm-version>20.3.2</graalvm-version>
+        <quarkus-version>1.11.7.Final-redhat-00003</quarkus-version>
 
         <!-- camel-k -->
         <groovy-version>3.0.7</groovy-version>
