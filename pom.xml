@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-dependencies</artifactId>
-        <version>3.9.0</version>
+        <version>3.10.0.fuse-800004</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -38,7 +38,7 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <camel-version>3.10.0.fuse-800003</camel-version>
+        <camel-version>3.10.0.fuse-800004</camel-version>
 
         <!-- quarkus -->
         <camel-quarkus-version>1.8.1-SNAPSHOT</camel-quarkus-version>
