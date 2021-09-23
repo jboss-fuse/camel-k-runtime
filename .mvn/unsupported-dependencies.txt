@@ -1,0 +1,4 @@
+# List of dependencies needed for camel-k-runtime build but not supported by productization process
+camel-quarkus-groovy-dsl
+camel-quarkus-js-dsl
+camel-quarkus-kotlin-dsl
