@@ -22,13 +22,13 @@
     <parent>
         <groupId>org.apache.camel</groupId>
         <artifactId>camel-dependencies</artifactId>
-        <version>3.11.1</version>
-    </parent>
+        <version>3.11.1.fuse-800019</version>
+       </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-project</artifactId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>1.9.0.fuse-800015</version>
     <packaging>pom</packaging>
 
     <properties>
@@ -38,10 +38,10 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <camel-version>3.11.1.fuse-800003-redhat-00002</camel-version>
+        <camel-version>3.11.1.fuse-800019</camel-version>
 
         <!-- quarkus -->
-        <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
+        <camel-quarkus-version>2.2.0.fuse-800019</camel-quarkus-version>
         <graalvm-version>21.2.0</graalvm-version>
         <quarkus-version>2.2.2.Final-redhat-00001</quarkus-version>
 
