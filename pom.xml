@@ -43,7 +43,7 @@
         <!-- quarkus -->
         <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
         <graalvm-version>21.2.0</graalvm-version>
-        <quarkus-version>2.2.2.Final-redhat-00001</quarkus-version>
+        <quarkus-version>2.2.3.Final-redhat-00008</quarkus-version>
 
         <!-- camel-k -->
         <groovy-version>3.0.8</groovy-version>
@@ -764,6 +764,12 @@
                 <artifactId>hamcrest-core</artifactId>
                 <version>${hamcrest-version}</version>
             </dependency>
+            <dependency>
+                <groupId>io.quarkus</groupId>
+                <artifactId>quarkus-logging-json</artifactId>
+                <version>${quarkus-version}</version>
+            </dependency>
+
 
             <!-- maven -->
             <dependency>
