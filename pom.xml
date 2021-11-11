@@ -38,8 +38,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <camel-version>3.11.1.fuse-800003-redhat-00002</camel-version>
-        <camel-community.version>3.11.1</camel-community.version>
+        <camel-version>3.11.1.fuse-800003-redhat-00002</camel-version><!-- keep in sync with the camel-version in support/camel-k-runtime-bom/pom.xml -->
+        <camel-community.version>3.11.1</camel-community.version><!-- keep in sync with the camel-community.version in support/camel-k-runtime-bom/pom.xml -->
 
         <!-- quarkus -->
         <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
@@ -395,6 +395,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency><!-- Workaround for https://issues.redhat.com/browse/ENTESB-17802 Can be removed once camel-bom manages camel-kamelet-reify properly -->
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-kamelet-reify</artifactId>
+                <version>${camel-version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-bom</artifactId>
