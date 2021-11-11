@@ -32,8 +32,9 @@
     <packaging>pom</packaging>
 
     <properties>
-        <camel-version>3.11.0</camel-version>
-        
+        <camel-version>3.11.1.fuse-800003-redhat-00002</camel-version>
+        <camel-community.version>3.11.1</camel-community.version>
+
         <!-- reproduceable builds: https://maven.apache.org/guides/mini/guide-reproducible-builds.html -->
         <project.build.outputTimestamp>1</project.build.outputTimestamp>
     </properties>
@@ -92,6 +93,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency><!-- Workaround for https://issues.redhat.com/browse/ENTESB-17802 Can be removed once camel-bom manages camel-kamelet-reify properly -->
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-kamelet-reify</artifactId>
+                <version>${camel-version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.camel.k</groupId>
                 <artifactId>camel-k-core-api</artifactId>
@@ -339,7 +345,7 @@
                             <dependency>
                                 <groupId>org.apache.camel</groupId>
                                 <artifactId>camel-buildtools</artifactId>
-                                <version>${camel-version}</version>
+                                <version>${camel-community.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>
