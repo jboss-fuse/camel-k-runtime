@@ -38,8 +38,10 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
 
-        <camel-version>3.11.1.fuse-800003-redhat-00002</camel-version><!-- keep in sync with the camel-version in support/camel-k-runtime-bom/pom.xml -->
-        <camel-community.version>3.11.1</camel-community.version><!-- keep in sync with the camel-community.version in support/camel-k-runtime-bom/pom.xml -->
+        <!-- keep in sync with the camel-version in support/camel-k-runtime-bom/pom.xml -->
+        <camel-version>3.11.1.fuse-800025</camel-version>
+        <!-- keep in sync with the camel-community.version in support/camel-k-runtime-bom/pom.xml -->
+        <camel-community.version>3.11.1</camel-community.version>
 
         <!-- quarkus -->
         <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
