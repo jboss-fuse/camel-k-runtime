@@ -57,7 +57,6 @@
         <!-- overridden camel dependencies versions -->
         <javapoet-version>1.13.0</javapoet-version>
         <json-schema-validator-version>2.2.14</json-schema-validator-version>
-        <log4j2.version>2.15.0</log4j2.version>
 
         <!-- plugins -->
         <gmavenplus-plugin-version>1.12.1</gmavenplus-plugin-version>
@@ -742,21 +741,6 @@
                 <groupId>com.squareup</groupId>
                 <artifactId>javapoet</artifactId>
                 <version>${javapoet-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-core</artifactId>
-                <version>${log4j2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j2-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-jcl</artifactId>
-                <version>${log4j2-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
