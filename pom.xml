@@ -57,6 +57,7 @@
         <!-- overridden camel dependencies versions -->
         <javapoet-version>1.13.0</javapoet-version>
         <json-schema-validator-version>2.2.14</json-schema-validator-version>
+        <log4j2.version>2.15.0</log4j2.version>
 
         <!-- plugins -->
         <gmavenplus-plugin-version>1.12.1</gmavenplus-plugin-version>
