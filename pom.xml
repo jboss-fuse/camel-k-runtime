@@ -45,7 +45,8 @@
 
         <!-- quarkus -->
         <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
-        <graalvm-version>21.2.0</graalvm-version>
+        <graalvm-version>21.3.1.0-0-redhat-00001</graalvm-version>
+        <graalvm-community.version>21.2.0</graalvm-community.version>
         <quarkus-version>2.2.2.Final-redhat-00001</quarkus-version>
 
         <!-- camel-k -->
@@ -668,7 +669,7 @@
             <dependency>
                 <groupId>org.graalvm.js</groupId>
                 <artifactId>js</artifactId>
-                <version>${graalvm-version}</version>
+                <version>${graalvm-community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.graalvm.nativeimage</groupId>
