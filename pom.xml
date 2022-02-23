@@ -47,7 +47,7 @@
         <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
         <graalvm-version>21.3.1.0-0-redhat-00001</graalvm-version>
         <graalvm-community.version>21.2.0</graalvm-community.version>
-        <quarkus-version>2.2.2.Final-redhat-00001</quarkus-version>
+        <quarkus-version>2.2.5.Final-redhat-00010</quarkus-version>
 
         <!-- camel-k -->
         <groovy-version>3.0.8</groovy-version>
