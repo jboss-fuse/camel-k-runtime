@@ -44,7 +44,7 @@
         <camel-community.version>3.11.1</camel-community.version>
 
         <!-- quarkus -->
-        <camel-quarkus-version>2.2.0-SNAPSHOT</camel-quarkus-version>
+        <camel-quarkus-version>2.2.1.fuse-800014</camel-quarkus-version>
         <graalvm-version>21.3.1.0-0-redhat-00001</graalvm-version>
         <graalvm-community.version>21.3.1</graalvm-community.version>
         <quarkus-version>2.2.5.Final-redhat-00010</quarkus-version>
