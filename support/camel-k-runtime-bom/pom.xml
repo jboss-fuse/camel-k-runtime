@@ -28,12 +28,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-bom</artifactId>
-    <version>1.9.0-SNAPSHOT</version>
+    <version>1.9.0.fuse-800044</version>
     <packaging>pom</packaging>
 
     <properties>
         <!-- keep in sync with the camel-version in main pom.xml -->
-        <camel-version>3.11.1.fuse-800025</camel-version>
+        <camel-version>3.11.5.fuse-800012</camel-version>
         <!-- keep in sync with the camel-community.version in main pom.xml -->
         <camel-community.version>3.11.1</camel-community.version>
 
