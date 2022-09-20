@@ -62,7 +62,10 @@ jobs:
         distribution: 'temurin'
         java-version: ${{ matrix.java }}
     - name: Build camel-k-runtime
-      run: ./mvnw -V -ntp clean install
+      run: |
+        echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
+        find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
+        ./mvnw -V -ntp clean install
     - name: Tar Maven Repo
       shell: bash
       run: tar -czf maven-repo-${{ github.run_id }}-${{ github.run_number }}.tgz -C ~ .m2/repository
@@ -88,6 +91,8 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Build on ${{ matrix.java }}
         run: |
+          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;          
           ./mvnw ${MAVEN_ARGS} -B clean install
   build-native:
     runs-on: ubuntu-latest
@@ -136,6 +141,8 @@ jobs:
         run: tar -xzf maven-repo-${{ github.run_id }}-${{ github.run_number }}.tgz -C ~
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
+          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;        
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
@@ -170,27 +177,10 @@ jobs:
         run: tar -xzf maven-repo-${{ github.run_id }}-${{ github.run_number }}.tgz -C ~
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
+          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;        
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
             -Ddocker \
             -pl ${{ matrix.native-image-project }}
-  deploy:
-    runs-on: ubuntu-latest
-    needs:
-      - build-native
-      - build-native-examples
-    if: github.ref == 'refs/heads/main'
-    env:
-      NEXUS_DEPLOY_USERNAME: ${{ secrets.NEXUS_USER }}
-      NEXUS_DEPLOY_PASSWORD: ${{ secrets.NEXUS_PW }}
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-    - name: Set up JDK 11
-      uses: AdoptOpenJDK/install-jdk@v1
-      with:
-        version: '11'
-    - name: Deploy to ASF Snapshots Repository
-      run: ./mvnw ${MAVEN_ARGS} clean deploy -DskipTests -DskipITs --settings .github/asf-deploy-settings.xml
