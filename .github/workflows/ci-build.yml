@@ -19,6 +19,9 @@ name: Build
 env:
   MAVEN_OPTS: -Xmx3000m
   MAVEN_ARGS: -V -ntp -Dhttp.keepAlive=false -e
+  QUARKUS_PLATFORM_GROUP_ID_SED_COMMAND: 
+  NATIVE_BUILDER_IMAVE_SED_COMMAND: 
+
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
   cancel-in-progress: true
@@ -63,8 +66,9 @@ jobs:
         java-version: ${{ matrix.java }}
     - name: Build camel-k-runtime
       run: |
-        echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
-        find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
+        echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
+        sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.1\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+        find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \; 
         ./mvnw -V -ntp clean install
     - name: Tar Maven Repo
       shell: bash
@@ -91,8 +95,9 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Build on ${{ matrix.java }}
         run: |
-          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;          
+          echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.1\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;    
           ./mvnw ${MAVEN_ARGS} -B clean install
   build-native:
     runs-on: ubuntu-latest
@@ -141,8 +146,9 @@ jobs:
         run: tar -xzf maven-repo-${{ github.run_id }}-${{ github.run_number }}.tgz -C ~
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
-          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;        
+          echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.1\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;           
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
@@ -177,8 +183,9 @@ jobs:
         run: tar -xzf maven-repo-${{ github.run_id }}-${{ github.run_number }}.tgz -C ~
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
-          echo "INFO: setting Quarkus bom to community to make sure the Github action can run!"
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;        
+          echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.1\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;         
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
