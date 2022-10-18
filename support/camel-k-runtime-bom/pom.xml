@@ -28,13 +28,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.camel.k</groupId>
     <artifactId>camel-k-runtime-bom</artifactId>
-    <version>1.12.1-SNAPSHOT</version>
+    <version>1.12.0</version>
     <packaging>pom</packaging>
 
     <properties>
         <quarkus-platform-version>2.7.6.Final</quarkus-platform-version>
         <!-- reproduceable builds: https://maven.apache.org/guides/mini/guide-reproducible-builds.html -->
-        <project.build.outputTimestamp>1644316906</project.build.outputTimestamp>
+        <project.build.outputTimestamp>1666090853</project.build.outputTimestamp>
 
         <maven-enforcer-plugin-version>3.0.0</maven-enforcer-plugin-version>
         <maven-version>3.6.2</maven-version>
