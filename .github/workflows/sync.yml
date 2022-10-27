@@ -24,6 +24,9 @@ on:
 
 jobs:
   sync:
+    strategy:
+      matrix:
+        branch: ["release-1.12.x", "release-1.13.x", "release-1.15.x"]  
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout code
@@ -32,7 +35,7 @@ jobs:
           # We need to provide either a Personal Access Token or a SSH Key as suggested in
           # https://medium.com/prompt/trigger-another-github-workflow-without-using-a-personal-access-token-f594c21373ef
           ssh-key: "${{ secrets.PUSH_KEY }}"
-          ref: ${{ github.ref }}
+          ref: ${{ matrix.branch }}
           fetch-depth: 0
           persist-credentials: true
       - name: Git set bot identity
@@ -47,13 +50,14 @@ jobs:
         with:
           upstream-org: "apache"
           upstream-repo: "camel-k-runtime"
-          upstream-branch: ${{github.ref_name}}
+          upstream-branch: ${{ matrix.branch }}
+          downstream-branch: ${{ matrix.branch }}
       - name: Pin init directory divergencies
         uses: squakez/sync-pin-divergencies@v0
         with:
           init-directory: "ci/downstream"            
       - name: Git push          
         run: |
-          git push origin HEAD:${{ github.ref }}
+          git push origin HEAD:${{ matrix.branch }}
 
 
