@@ -35,6 +35,10 @@
     <maven-enforcer-plugin-version>3.1.0</maven-enforcer-plugin-version>
     <maven-version>3.6.3</maven-version>
     <quarkus-platform-version>2.13.4.Final</quarkus-platform-version>
+    <!-- Having quarkus-camel-platform-version property allows PNC to properly align versions to the latest redhat build,
+         event if it is the same as of quarkus-platform-version, the redhat build may eventually be different
+    -->
+    <quarkus-camel-platform-version>2.13.4.Final</quarkus-camel-platform-version>      
   </properties>
   <developers>
     <developer>
@@ -95,7 +99,7 @@
       <dependency>
         <groupId>com.redhat.quarkus.platform</groupId>
         <artifactId>quarkus-camel-bom</artifactId>
-        <version>${quarkus-platform-version}</version>
+        <version>${quarkus-camel-platform-version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
