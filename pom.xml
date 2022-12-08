@@ -405,9 +405,9 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.redhat.quarkus.platform</groupId>
-                <artifactId>quarkus-camel-bom</artifactId>
-                <version>${quarkus-platform-version}</version>
+                <groupId>org.apache.camel.quarkus</groupId>
+                <artifactId>camel-quarkus-bom</artifactId>
+                <version>${camel-quarkus-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
