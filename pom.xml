@@ -40,6 +40,8 @@
         <camel-quarkus-version>2.13.1</camel-quarkus-version>
         <quarkus-version>2.13.3.Final</quarkus-version>
         <quarkus-platform-version>2.13.4.Final</quarkus-platform-version>
+        <!-- The quarkus camel bom may differ from quarkus platfom -->
+        <quarkus-camel-bom-version>2.13.4.Final</quarkus-camel-bom-version>
         <quarkus-native-builder-image>registry.redhat.io/quarkus/mandrel-21-rhel8:21.3</quarkus-native-builder-image>
 
         <!-- camel-k-runtime specific -->
@@ -132,7 +134,7 @@
                           <rules>
                             <requireMavenVersion>
                               <version>${maven-version}</version>
-                            </requireMavenVersion>                           
+                            </requireMavenVersion>
                           </rules>
                         </configuration>
                       </execution>
@@ -310,7 +312,7 @@
                                 <property>camel-version</property>
                                 <regex>${project.parent.version}</regex>
                                 <regexMessage>Camel version must be equals to camel-dependency parent pom version (${project.parent.version})!</regexMessage>
-                            </requireProperty>                            
+                            </requireProperty>
                         </rules>
                         <fail>true</fail>
                     </configuration>
@@ -389,7 +391,7 @@
     </modules>
 
     <dependencyManagement>
-        <dependencies>     
+        <dependencies>
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-bom</artifactId>
@@ -399,14 +401,14 @@
             </dependency>
             <dependency>
                 <groupId>com.redhat.quarkus.platform</groupId>
-                <artifactId>quarkus-bom</artifactId>
-                <version>${quarkus-platform-version}</version>
+                <artifactId>quarkus-camel-bom</artifactId>
+                <version>${quarkus-camel-bom-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>com.redhat.quarkus.platform</groupId>
-                <artifactId>quarkus-camel-bom</artifactId>
+                <artifactId>quarkus-bom</artifactId>
                 <version>${quarkus-platform-version}</version>
                 <type>pom</type>
                 <scope>import</scope>
