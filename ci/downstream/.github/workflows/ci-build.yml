@@ -19,8 +19,8 @@ name: Build
 env:
   MAVEN_OPTS: -Xmx3000m
   MAVEN_ARGS: -V -ntp -Dhttp.keepAlive=false -e
-  QUARKUS_PLATFORM_GROUP_ID_SED_COMMAND: 
-  NATIVE_BUILDER_IMAVE_SED_COMMAND: 
+  QUARKUS_PLATFORM_GROUP_ID_SED_COMMAND:
+  NATIVE_BUILDER_IMAVE_SED_COMMAND:
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -68,7 +68,7 @@ jobs:
       run: |
         echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
         sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
-        find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \; 
+        find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
         ./mvnw -V -ntp clean install
     - name: Tar Maven Repo
       shell: bash
@@ -97,7 +97,7 @@ jobs:
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
           sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;    
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B clean install
   build-native:
     runs-on: ubuntu-latest
@@ -148,7 +148,7 @@ jobs:
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
           sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;           
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
@@ -185,9 +185,31 @@ jobs:
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
           sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
-          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;         
+          find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
             -Dnative-image.xmx=6g \
             -Ddocker \
             -pl ${{ matrix.native-image-project }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build-native
+      - build-native-examples
+    # Run only when pushing to the branches (either main or release), never on merge requests
+    if: ${{ github.event_name == 'push' }}
+    env:
+      NEXUS_DEPLOY_USERNAME: ${{ secrets.NEXUS_USER }}
+      NEXUS_DEPLOY_PASSWORD: ${{ secrets.NEXUS_PW }}
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+    - name: Set up JDK 11
+      uses: AdoptOpenJDK/install-jdk@v1
+      with:
+        version: '11'
+    - name: Deploy to ASF Snapshots Repository
+      # Deploy both artifacts and sources (may be required by Camel K)
+      run: |
+        ./mvnw ${MAVEN_ARGS} clean deploy -DskipTests -DskipITs --settings .github/asf-deploy-settings.xml
