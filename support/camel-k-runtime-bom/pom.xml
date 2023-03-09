@@ -220,14 +220,19 @@
             </dependency>
             <dependency>
                 <groupId>org.jolokia</groupId>
-                <artifactId>jolokia-core</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.googlecode.json-simple</groupId>
-                <artifactId>json-simple</artifactId>
-            </exclusion>
-        </exclusions>
-      </dependency>
+                <artifactId>jolokia-jvm</artifactId>
+                <version>${jolokia-version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.jolokia</groupId>
+                        <artifactId>jolokia-core</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.googlecode.json-simple</groupId>
+                        <artifactId>json-simple</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
     </dependencies>
   </dependencyManagement>
   <build>
