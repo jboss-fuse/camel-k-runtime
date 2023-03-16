@@ -61,9 +61,12 @@
             <artifactId>camel-k-catalog-model</artifactId>
         </dependency>
         <dependency>
+            <!-- Do not use camel-version property, in this case PNC will align this
+                 artifact to a productized version.
+                Set the version number, with the same version defined in the root pom -->
             <groupId>org.apache.camel</groupId>
             <artifactId>camel-openapi-rest-dsl-generator</artifactId>
-            <version>${camel-version}</version>
+            <version>3.18.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.camel</groupId>
