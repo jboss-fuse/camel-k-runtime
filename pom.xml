@@ -133,7 +133,7 @@
                         <configuration>
                           <rules>
                             <requireMavenVersion>
-                              <version>${maven-version}</version>
+                              <version>[${maven-version},)</version>
                             </requireMavenVersion>
                             <dependencyConvergence/>
                           </rules>
