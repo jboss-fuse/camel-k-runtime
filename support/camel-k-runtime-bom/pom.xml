@@ -42,6 +42,7 @@
         <quarkus-platform-version>2.13.7.Final</quarkus-platform-version>
         <!-- The quarkus camel bom may differ from quarkus platfom -->
         <quarkus-camel-bom-version>2.13.7.Final</quarkus-camel-bom-version>
+        <quarkus-platform-group>com.redhat.quarkus.platform</quarkus-platform-group>
     </properties>
 
     <developers>
@@ -99,7 +100,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.redhat.quarkus.platform</groupId>
+                <groupId>${quarkus-platform-group}</groupId>
                 <artifactId>quarkus-camel-bom</artifactId>
                 <version>${quarkus-camel-bom-version}</version>
                 <type>pom</type>
