@@ -115,9 +115,6 @@ jobs:
           - :camel-k-itests-knative-producer
           - :camel-k-itests-knative-consumer
           - :camel-k-itests-knative-sinkbinding
-          #- :camel-k-itests-knative-source-js
-          - :camel-k-itests-knative-source-xml
-          - :camel-k-itests-knative-source-yaml
           - :camel-k-itests-loader-xml
           - :camel-k-itests-loader-yaml
           #- :camel-k-itests-loader-js
@@ -191,4 +188,4 @@ jobs:
             -Dnative-image.xmx=6g \
             -Ddocker \
             -pl ${{ matrix.native-image-project }}
-            
+
