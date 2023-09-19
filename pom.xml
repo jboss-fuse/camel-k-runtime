@@ -43,7 +43,7 @@
         <quarkus-platform-version>2.13.7.Final</quarkus-platform-version>
         <!-- The quarkus camel bom may differ from quarkus platfom -->
         <quarkus-camel-bom-version>2.13.7.Final</quarkus-camel-bom-version>
-        <quarkus-native-builder-image>registry.redhat.io/quarkus/mandrel-21-rhel8:21.3</quarkus-native-builder-image>
+        <quarkus-native-builder-image>registry.redhat.io/quarkus/mandrel-22-rhel8:22.3</quarkus-native-builder-image>
         <quarkus-platform-group>com.redhat.quarkus.platform</quarkus-platform-group>
 
         <!-- camel-k-runtime specific -->
