@@ -262,7 +262,7 @@
                 <plugin>
                     <groupId>org.apache.camel</groupId>
                     <artifactId>camel-component-maven-plugin</artifactId>
-                    <version>${camel-version}</version>
+                    <version>4.0.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.camel</groupId>
