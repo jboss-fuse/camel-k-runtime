@@ -54,7 +54,7 @@ jobs:
     strategy:
       matrix:
         java:
-          - '11'
+          - '17'
     steps:
     - uses: actions/checkout@v2
       with:
@@ -67,7 +67,7 @@ jobs:
     - name: Build camel-k-runtime
       run: |
         echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
-        sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+        sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-mandrel-builder-image:23\.0-jdk-17<\/quarkus-native-builder-image>/g' pom.xml
         find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
         ./mvnw -V -ntp clean install
     - name: Tar Maven Repo
@@ -96,7 +96,7 @@ jobs:
       - name: Build on ${{ matrix.java }}
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
-          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-mandrel-builder-image:23\.0-jdk-17<\/quarkus-native-builder-image>/g' pom.xml
           find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B clean install
   build-native:
@@ -129,10 +129,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Set up JDK 11
+      - name: Set up JDK 7
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '11'
+          version: '17'
       - name: Download Maven Repo
         uses: actions/download-artifact@v1
         with:
@@ -144,7 +144,7 @@ jobs:
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
-          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-mandrel-builder-image:23\.0-jdk-17<\/quarkus-native-builder-image>/g' pom.xml
           find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
@@ -166,10 +166,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: AdoptOpenJDK/install-jdk@v1
         with:
-          version: '11'
+          version: '17'
       - name: Download Maven Repo
         uses: actions/download-artifact@v1
         with:
@@ -181,7 +181,7 @@ jobs:
       - name: Integration Test - ${{ matrix.native-image-project }}
         run: |
           echo "INFO: setting Quarkus BOM and Native Image to community related version to make sure the Github action can run!"
-          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-native-image:22\.3\.0-java11<\/quarkus-native-builder-image>/g' pom.xml
+          sed -i 's/<quarkus-native-builder-image>.*<\/quarkus-native-builder-image>/<quarkus-native-builder-image>quay.io\/quarkus\/ubi-quarkus-mandrel-builder-image:23\.0-jdk-17<\/quarkus-native-builder-image>/g' pom.xml
           find . -type f -name '*.xml' -exec sed -i 's/com\.redhat\.quarkus\.platform/io\.quarkus\.platform/g' {} \;
           ./mvnw ${MAVEN_ARGS} -B -nsu clean install \
             -Dnative \
