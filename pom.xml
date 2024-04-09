@@ -265,7 +265,7 @@
                 <plugin>
                     <groupId>org.apache.camel</groupId>
                     <artifactId>camel-component-maven-plugin</artifactId>
-                    <version>${camel-version}</version>
+                    <version>4.4.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.camel</groupId>
