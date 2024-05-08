@@ -41,6 +41,9 @@
 
         <maven-version>3.8.6</maven-version>
         <camel-version>4.4.1</camel-version>
+        <!-- TODO: graalvm.js dependency is set in CEQ 3.9, verify if this definition is required when upgrading quarkus platform
+             this version is set in quarkus-camel-bom -->
+        <graalvm-js-version>23.1.2</graalvm-js-version>
 
         <!-- quarkus -->
         <quarkus-version>3.8.4</quarkus-version>
@@ -499,6 +502,12 @@
                 <groupId>org.apache.camel.k</groupId>
                 <artifactId>camel-k-itests-runtime-inspector</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.graalvm.js</groupId>
+                <artifactId>js-language</artifactId>
+                <scope>test</scope>
+                <version>${graalvm-js-version}</version>
             </dependency>
 
             <!-- support -->
