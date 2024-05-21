@@ -49,7 +49,7 @@
         <quarkus-version>3.8.4</quarkus-version>
         <quarkus-platform-group>com.redhat.quarkus.platform</quarkus-platform-group>
         <quarkus-platform-version>3.8.4</quarkus-platform-version>
-        <quarkus-native-builder-image>registry.redhat.io/quarkus/mandrel-21-rhel8:21.3</quarkus-native-builder-image>
+        <quarkus-native-builder-image>registry.redhat.io/quarkus/mandrel-23-rhel8:23.0</quarkus-native-builder-image>
 
         <!-- camel-k-runtime specific -->
         <groovy-version>4.0.20</groovy-version>
