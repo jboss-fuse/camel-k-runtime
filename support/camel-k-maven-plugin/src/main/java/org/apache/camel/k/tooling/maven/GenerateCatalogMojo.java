@@ -436,6 +436,13 @@ public class GenerateCatalogMojo extends AbstractMojo {
                             .build());
                 });
 
+                // override avro version, as defined in camel-k-runtime-bom/pom.xml
+                boolean avroArtifact = "camel-quarkus-jackson-avro".equals(definition.getArtifactId()) || "camel-quarkus-avro".equals(definition.getArtifactId())
+                    || "camel-quarkus-avro-rpc".equals(definition.getArtifactId());
+                if ("org.apache.camel.quarkus".equals(definition.getGroupId()) && avroArtifact) {
+                    builder.addDependency("org.apache.avro", "avro");
+                }
+
                 return builder.build();
             });
         }
@@ -477,6 +484,13 @@ public class GenerateCatalogMojo extends AbstractMojo {
 
             artifacts.compute(definition.getArtifactId(), (key, artifact) -> {
                 CamelArtifact.Builder builder = artifactBuilder(artifact, definition);
+
+                // override avro version, as defined in camel-k-runtime-bom/pom.xml
+                boolean avroArtifact = "camel-quarkus-jackson-avro".equals(definition.getArtifactId()) || "camel-quarkus-avro".equals(definition.getArtifactId())
+                    || "camel-quarkus-avro-rpc".equals(definition.getArtifactId());
+                if ("org.apache.camel.quarkus".equals(definition.getGroupId()) && avroArtifact) {
+                    builder.addDependency("org.apache.avro", "avro");
+                }
                 builder.addDataformat(definition.getName());
                 builder.addJavaType(definition.getJavaType());
 
