@@ -395,6 +395,15 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- Added here to avoid full Camel release train -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-core</artifactId>
+                <version>3.5.8</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-bom</artifactId>
