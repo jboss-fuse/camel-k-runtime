@@ -49,7 +49,6 @@
         <!-- Overrides section - as CEQ, Quarkus versions are EOL we can override any version from upstream -->
         <avro-version>1.11.4</avro-version>
         <cxf-version>3.5.8</cxf-version>
-        <fhir-version>4.2.0.redhat-00003</fhir-version>
     </properties>
 
     <developers>
@@ -254,48 +253,6 @@
                 <groupId>org.apache.avro</groupId>
                 <artifactId>avro</artifactId>
                 <version>${avro-version}</version>
-            </dependency>
-
-            <!-- override fhir due to CVE -->
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.r4</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.r5</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.dstu2</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.dstu2016may</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.dstu3</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.utilities</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.convertors</artifactId>
-                <version>${fhir-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>org.hl7.fhir.validation</artifactId>
-                <version>${fhir-version}</version>
             </dependency>
 
         </dependencies>
