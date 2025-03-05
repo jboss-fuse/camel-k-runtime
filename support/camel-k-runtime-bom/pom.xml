@@ -49,6 +49,7 @@
         <!-- Overrides section - as CEQ, Quarkus versions are EOL we can override any version from upstream -->
         <avro-version>1.11.4</avro-version>
         <cxf-version>3.5.8</cxf-version>
+        <netty-version>4.1.115.Final</netty-version>
     </properties>
 
     <developers>
@@ -105,11 +106,18 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- Added here to avoid full Camel release train -->
+            <!-- Required to avoid full Camel release train -->
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-core</artifactId>
                 <version>${cxf-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-bom</artifactId>
+                <version>${netty-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <dependency>
